@@ -1,0 +1,11 @@
+name = "anime-stream"
+description = "Serveur de streaming d'anime"
+run = "bash start.sh"
+language = "bash"
+onBoot = true
+persistentKeepAlive = true
+
+[env]
+FLASK_APP = "app.py"
+FLASK_ENV = "production"
+PYTHONUNBUFFERED = "1"

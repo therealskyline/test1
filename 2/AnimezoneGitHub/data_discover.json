@@ -1,0 +1,288 @@
+[
+    {
+        "id": 1,
+        "anime_id": 7,
+        "title": "Hunter x Hunter",
+        "description": "Gon Freecss décide de devenir Hunter afin de retrouver son père qui l'a abandonné. En chemin, il se lie d'amitié avec Kurapika, Léolio et Kirua.",
+        "image": "https://cdn.statically.io/gh/Anime-Sama/IMG/img/contenu/hunter-x-hunter.jpg",
+        "genres": ["Aventure", "Action", "Fantasy"],
+        "rating": 9.3,
+        "featured": true,
+        "has_episodes": true,
+        "languages": ["VOSTFR", "VF"],
+        "seasons": [
+            {
+                "season_number": 1,
+                "name": "Saison 1",
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "title": "Départ × Et × Amis",
+                        "description": "Gon quitte son île natale pour devenir un Hunter comme son père."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "anime_id": 11,
+        "title": "Naruto Shippuden",
+        "description": "Deux ans et demi se sont écoulés depuis que Naruto a quitté Konoha pour s'entraîner avec Jiraiya. À son retour, il retrouve ses amis qui ont tous progressé, et doit faire face à l'Akatsuki qui menace le monde ninja.",
+        "image": "https://cdn.statically.io/gh/Anime-Sama/IMG/img/contenu/naruto-shippuden.jpg",
+        "genres": ["Action", "Aventure", "Shônen"],
+        "rating": 9.1,
+        "featured": true,
+        "has_episodes": true,
+        "languages": ["VOSTFR", "VF"],
+        "seasons": [
+            {
+                "season_number": 1,
+                "name": "Saison 1",
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "title": "Retour au pays",
+                        "description": "Naruto rentre à Konoha après deux ans et demi d'entraînement avec Jiraiya."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "anime_id": 2,
+        "title": "Death Note",
+        "description": "Light Yagami trouve un carnet mystérieux qui lui permet de tuer n'importe qui en écrivant leur nom.",
+        "image": "https://cdn.statically.io/gh/Anime-Sama/IMG/img/contenu/death-note.jpg",
+        "genres": ["Thriller", "Psychologique", "Surnaturel"],
+        "rating": 9.4,
+        "featured": true,
+        "has_episodes": true,
+        "languages": ["VOSTFR", "VF"],
+        "seasons": [
+            {
+                "season_number": 1,
+                "name": "Saison 1",
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "title": "Renaissance",
+                        "description": "Light Yagami trouve le Death Note et découvre son pouvoir."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "anime_id": 3,
+        "title": "Demon Slayer",
+        "description": "Tanjiro Kamado devient un chasseur de démons après que sa famille est massacrée et sa sœur transformée en démon.",
+        "image": "https://cdn.statically.io/gh/Anime-Sama/IMG/img/contenu/demon-slayer.jpg",
+        "genres": ["Action", "Démons", "Historique"],
+        "rating": 9.0,
+        "featured": true,
+        "has_episodes": true,
+        "languages": ["VOSTFR", "VF"],
+        "seasons": [
+            {
+                "season_number": 1,
+                "name": "Saison 1",
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "title": "Cruauté",
+                        "description": "Tanjiro découvre sa famille assassinée et sa sœur transformée en démon."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "anime_id": 4,
+        "title": "One Punch Man",
+        "description": "Saitama, un super-héros capable de vaincre n'importe quel ennemi d'un seul coup de poing, s'ennuie de sa toute-puissance.",
+        "image": "https://cdn.statically.io/gh/Anime-Sama/IMG/img/contenu/one-punch-man.jpg",
+        "genres": ["Action", "Comédie", "Super-héros"],
+        "rating": 8.8,
+        "featured": true,
+        "has_episodes": true,
+        "languages": ["VOSTFR", "VF"],
+        "seasons": [
+            {
+                "season_number": 1,
+                "name": "Saison 1",
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "title": "L'homme le plus fort",
+                        "description": "Introduction de Saitama, le héros le plus puissant qui s'ennuie de sa force."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "anime_id": 5,
+        "title": "Mashle",
+        "description": "Dans un monde où la magie fait loi, un jeune garçon nommé Mash Burnedead, dépourvu de toute aptitude pour la magie, vit paisiblement avec son grand-père adoptif.",
+        "image": "https://cdn.statically.io/gh/Anime-Sama/IMG/img/contenu/mashle.jpg",
+        "genres": ["Action", "Comédie", "Fantasy"],
+        "rating": 8.2,
+        "featured": true,
+        "has_episodes": true,
+        "languages": ["VOSTFR"],
+        "seasons": [
+            {
+                "season_number": 1,
+                "name": "Saison 1",
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "title": "Mash Burnedead et le monde de la magie",
+                        "description": "Introduction de Mash qui vit dans un monde de magie sans en posséder."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "anime_id": 6,
+        "title": "My Hero Academia",
+        "description": "Dans un monde où 80% de la population possède des super-pouvoirs, Izuku Midoriya rêve de devenir un héros malgré le fait qu'il n'a pas de pouvoir.",
+        "image": "https://cdn.statically.io/gh/Anime-Sama/IMG/img/contenu/my-hero-academia.jpg",
+        "genres": ["Action", "Super-héros", "Ecole"],
+        "rating": 8.7,
+        "featured": true,
+        "has_episodes": true,
+        "languages": ["VOSTFR", "VF"],
+        "seasons": [
+            {
+                "season_number": 1,
+                "name": "Saison 1",
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "title": "Izuku Midoriya : Les Origines",
+                        "description": "Izuku Midoriya rêve de devenir un héros dans un monde où il est né sans alter."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "anime_id": 7,
+        "title": "Attack on Titan",
+        "description": "L'humanité vit retranchée derrière d'immenses murs pour se protéger des Titans, des êtres gigantesques qui dévorent les humains.",
+        "image": "https://cdn.statically.io/gh/Anime-Sama/IMG/img/contenu/attack-on-titan.jpg",
+        "genres": ["Action", "Drame", "Fantasy"],
+        "rating": 9.2,
+        "featured": true,
+        "has_episodes": true,
+        "languages": ["VOSTFR", "VF"],
+        "seasons": [
+            {
+                "season_number": 1,
+                "name": "Saison 1",
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "title": "À vous, dans 2000 ans : La chute de Shiganshina (1)",
+                        "description": "L'humanité vit retranchée derrière d'immenses murs pour se protéger des Titans."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "anime_id": 8,
+        "title": "Jujutsu Kaisen",
+        "description": "Yuji Itadori, un lycéen, rejoint une organisation secrète d'exorcistes pour éliminer une puissante malédiction qui l'habite.",
+        "image": "https://cdn.statically.io/gh/Anime-Sama/IMG/img/contenu/jujutsu-kaisen.jpg",
+        "genres": ["Action", "Surnaturel", "École"],
+        "rating": 8.9,
+        "featured": true,
+        "has_episodes": true,
+        "languages": ["VOSTFR", "VF"],
+        "seasons": [
+            {
+                "season_number": 1,
+                "name": "Saison 1",
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "title": "Ryomen Sukuna",
+                        "description": "Yuji Itadori avale un doigt maudit pour sauver ses amis et devient l'hôte de Sukuna."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "anime_id": 9,
+        "title": "Bleach",
+        "description": "Ichigo Kurosaki, un lycéen capable de voir les fantômes, devient un Shinigami après avoir rencontré Rukia Kuchiki.",
+        "image": "https://cdn.statically.io/gh/Anime-Sama/IMG/img/contenu/bleach.jpg",
+        "genres": ["Action", "Aventure", "Surnaturel"],
+        "rating": 8.5,
+        "featured": true,
+        "has_episodes": true,
+        "languages": ["VOSTFR", "VF"],
+        "seasons": [
+            {
+                "season_number": 1,
+                "name": "Saison 1",
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "title": "Le jour où je suis devenu Shinigami",
+                        "description": "Ichigo Kurosaki rencontre Rukia et devient un Shinigami pour sauver sa famille."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "anime_id": 10,
+        "title": "Dragon Ball",
+        "description": "Les aventures de Son Goku depuis son enfance jusqu'à l'âge adulte, alors qu'il s'entraîne aux arts martiaux et explore le monde à la recherche des Dragon Balls.",
+        "image": "https://cdn.statically.io/gh/Anime-Sama/IMG/img/contenu/dragon-ball.jpg",
+        "genres": ["Action", "Aventure", "Fantasy"],
+        "rating": 8.7,
+        "featured": true,
+        "has_episodes": true,
+        "languages": ["VOSTFR", "VF"],
+        "seasons": [
+            {
+                "season_number": 1,
+                "name": "Saison 1",
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "title": "L'aventure commence",
+                        "description": "Goku rencontre Bulma et part à l'aventure à la recherche des Dragon Balls."
+                    }
+                ]
+            },
+            {
+                "season_number": 99,
+                "name": "Films",
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "title": "Dragon Ball: La Légende de Shenron",
+                        "description": "Goku et ses amis affrontent le Roi Gurumes qui veut s'emparer des Dragon Balls."
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,600 @@
+{% extends 'base_new.html' %}
+
+{% block title %}{{ anime.title }} - Anime Zone{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top: 2rem;">
+    <!-- Breadcrumb -->
+    <div style="margin-bottom: 1.5rem;">
+        <a href="/" style="color: var(--text-secondary);">Home</a>
+        <span style="color: var(--text-muted); margin: 0 0.5rem;">/</span>
+        <span style="color: var(--text-primary);">{{ anime.title }}</span>
+    </div>
+
+    <!-- Anime Detail -->
+    <div class="anime-detail">
+        <!-- Poster -->
+        <div class="anime-poster">
+            <img src="{{ anime.image }}" alt="{{ anime.title }}">
+        </div>
+
+        <!-- Info -->
+        <div class="anime-info">
+            <h1 class="anime-title">{{ anime.title }}</h1>
+
+            <div class="anime-meta">
+                <div class="anime-rating">
+                    <span class="rating-star"><i class="fas fa-star"></i></span>
+                    <span style="margin-left: 0.5rem;">{{ anime.rating }}/10</span>
+                </div>
+
+                <!-- Section des genres retirée comme demandé -->
+
+                {% if current_user.is_authenticated %}
+                <div style="margin-top: 1rem; display: flex; justify-content: center;">
+                    <button id="favorite-toggle" class="btn {% if is_favorite %}btn-warning{% else %}btn-outline{% endif %}" onclick="toggleFavorite()">
+                        <i class="fas fa-heart"></i> {% if is_favorite %}Retirer des favoris{% else %}Ajouter aux favoris{% endif %}
+                    </button>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="anime-description">
+                {{ anime.description }}
+            </div>
+
+            
+
+            <!-- Reprendre le dernier épisode regardé -->
+            {% if latest_progress %}
+            <div class="continue-watching-btn" style="margin-bottom: 2rem;">
+                <a href="/player/{{ anime.anime_id if anime.anime_id else anime.id }}/{{ latest_progress.season_number }}/{{ latest_progress.episode_number }}" class="btn btn-primary btn-lg" style="width: auto; max-width: 300px; display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 auto;">
+                    <i class="fas fa-play-circle"></i>
+                    Continuer l'épisode {{ latest_progress.episode_number }} de la saison {{ latest_progress.season_number }}
+                </a>
+            </div>
+            {% endif %}
+
+            <!-- Seasons and Episodes -->
+            <div class="anime-seasons">
+                <h3>Saisons, Films et Épisodes</h3>
+
+                <!-- Seasons Tabs -->
+                <div class="seasons-tabs">
+                    <!-- Boutons de navigation supprimés car les saisons s'affichent maintenant en multi-lignes -->
+                    
+                    <div class="seasons-tabs-container">
+                        {% for season in anime.seasons %}
+                        <div class="season-tab" data-season="{{ season.season_number }}">
+                            {% if season.season_number == 99 %}
+                                Films
+                            {% elif season.name %}
+                                {{ season.name }}
+                                {% if 'Kai' in season.name %}
+                                <span class="badge kai-badge">Kai</span>
+                                {% endif %}
+                            {% else %}
+                                Saison {{ season.season_number }}
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+
+                        {% if anime.movies %}
+                        <div class="season-tab" data-season="movies">
+                            Films
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Season Content -->
+                {% for season in anime.seasons %}
+                <div class="season-content" data-season="{{ season.season_number }}" style="display: none;">
+                    {% if season.season_number == 99 %}
+                        <h3 style="margin-bottom: 1rem;">Films</h3>
+                    {% endif %}
+                    {% if season.episodes and season.episodes|length > 0 %}
+                    <ul class="episodes-list">
+                        {% for episode in season.episodes %}
+                        {% set progress_key = '%s_%s'|format(season.season_number, episode.episode_number) %}
+                        {% set has_progress = progress_key in episode_progress %}
+                        {% set is_completed = has_progress and episode_progress[progress_key].completed %}
+                        {% set time_pos = episode_progress[progress_key].time_position if has_progress else 0 %}
+                        {% set progress_percent = (time_pos / 1440) * 100 if has_progress else 0 %}
+
+                        <li class="episode-item {{ 'episode-completed' if is_completed else 'episode-in-progress' if has_progress else '' }}">
+                            <a href="/player/{{ anime.anime_id if anime.anime_id else anime.id }}/{{ season.season_number }}/{{ episode.episode_number }}" class="episode-link">
+                                <div class="episode-number">{{ episode.episode_number }}</div>
+                                <div class="episode-details">
+                                    <div class="episode-title">
+                                        {{ episode.title }}
+                                        
+                                        <!-- Badges des langues disponibles -->
+                                        {% if episode.languages %}
+                                            {% if 'VF' in episode.languages %}
+                                                <span class="language-badge vf">VF</span>
+                                            {% endif %}
+                                            {% if 'VOSTFR' in episode.languages %}
+                                                <span class="language-badge vostfr">VOSTFR</span>
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                    <div class="episode-description">{{ episode.description }}</div>
+
+                                    {% if has_progress %}
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: {{ progress_percent }}%;"></div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <div style="margin-left: auto; display: flex; flex-direction: column; align-items: flex-end;">
+                                    <i class="fas fa-play-circle" style="font-size: 1.5rem; color: var(--accent-color); margin-top: 5px;"></i>
+                                </div>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <div class="no-episodes-message">
+                        <div class="icon"><i class="fas fa-exclamation-circle"></i></div>
+                        <h3>Aucun épisode disponible</h3>
+                        <p>Pour le moment, les scans de manga ne sont pas pris en charge par le site.</p>
+                        <p>Nous travaillons à ajouter plus de contenu prochainement.</p>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+
+                <!-- Films Season -->
+                {% for season in anime.seasons %}
+                {% if season.season_number == 0 %}  {# Utiliser season_number 0 pour les films #}
+                <div class="season-content" data-season="films">
+                    <ul class="episode-list">
+                        {% for episode in season.episodes %}
+                        <li class="episode-item {% if episode_progress.get(season.season_number|string + '_' + episode.episode_number|string, {}).completed %}episode-completed{% elif episode_progress.get(season.season_number|string + '_' + episode.episode_number|string) %}episode-in-progress{% endif %}">
+                            <a href="{{ url_for('player', anime_id=anime.anime_id if anime.anime_id else anime.id, season_num=season.season_number, episode_num=episode.episode_number) }}" class="episode-link">
+                                <div>
+                                    <div class="episode-title">
+                                        {{ episode.title }}
+                                        
+                                        <!-- Badges des langues disponibles -->
+                                        {% if episode.languages %}
+                                            {% if 'VF' in episode.languages %}
+                                                <span class="language-badge vf">VF</span>
+                                            {% endif %}
+                                            {% if 'VOSTFR' in episode.languages %}
+                                                <span class="language-badge vostfr">VOSTFR</span>
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                    <div class="episode-description">{{ episode.description }}</div>
+                                    {% set progress = episode_progress.get(season.season_number|string + '_' + episode.episode_number|string, {}) %}
+                                    {% if progress %}
+                                    {% set progress_percent = (progress.time_position / 1400 * 100)|round|int %}
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: {{ progress_percent }}%;"></div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    /* Style pour les onglets de saisons */
+    .seasons-tabs {
+        position: relative;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .seasons-tabs-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        padding-bottom: 10px;
+        overflow-x: hidden;
+        max-width: 100%;
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .seasons-nav-button {
+        background: rgba(0, 123, 255, 0.2);
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        z-index: 10;
+        flex-shrink: 0;
+    }
+    
+    .seasons-nav-button:hover {
+        background: rgba(0, 123, 255, 0.6);
+    }
+    
+    .seasons-nav-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    
+    .season-tab {
+        padding: 0.6rem 1rem;
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: var(--text-secondary);
+        font-weight: 500;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        text-align: center;
+        min-width: 120px;
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        background-color: rgba(30, 30, 30, 0.5);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        flex-grow: 0;
+    }
+    
+    .season-tab:hover {
+        color: #fff;
+        background-color: rgba(50, 50, 50, 0.8);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .season-tab.active {
+        color: #fff;
+        background-color: rgba(0, 123, 255, 0.6);
+        border-color: rgba(0, 123, 255, 0.9);
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
+    }
+    
+    /* Style pour le bouton de reprise */
+    .resume-watching {
+        margin: 1.5rem 0;
+    }
+
+    /* Styles pour les épisodes avec progression */
+    .episode-completed .episode-title {
+        color: var(--success-color, #28a745);
+    }
+
+    .episode-in-progress .episode-title {
+        color: var(--accent-color, #007bff);
+    }
+
+    .progress-bar {
+        height: 4px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+        overflow: hidden;
+        margin-top: 8px;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background-color: var(--accent-color, #007bff);
+        border-radius: 2px;
+    }
+
+    /* Style des badges de statut */
+    .status-badge, .badge {
+        display: inline-block;
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 12px;
+        white-space: nowrap;
+    }
+    
+    /* Badge spécifique pour les versions Kai */
+    .kai-badge {
+        background-color: rgba(0, 123, 255, 0.3);
+        color: #70c0ff;
+        font-size: 0.65rem;
+        padding: 0.1rem 0.3rem;
+        border-radius: 4px;
+        margin-left: 5px;
+        position: relative;
+        top: -1px;
+    }
+
+    .status-badge.completed {
+        background-color: rgba(40, 167, 69, 0.2);
+        color: #7dffaa;
+    }
+
+    .status-badge.in-progress {
+        background-color: rgba(255, 193, 7, 0.2);
+        color: #ffd25a;
+    }
+
+    /* Style pour le header avec actions */
+    .header-with-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    /* Style pour les films */
+    .movies-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        list-style: none;
+        padding: 0;
+    }
+    
+    /* Badge pour indiquer les langues disponibles */
+    .language-badge {
+        display: inline-block;
+        font-size: 0.65rem;
+        padding: 0.1rem 0.4rem;
+        border-radius: 4px;
+        margin-left: 5px;
+        position: relative;
+        top: -1px;
+    }
+    
+    .language-badge.vf {
+        background-color: rgba(63, 81, 181, 0.3);
+        color: #a5b1ff;
+    }
+    
+    .language-badge.vostfr {
+        background-color: rgba(103, 58, 183, 0.3);
+        color: #c99aff;
+    }
+
+    .movie-item {
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: var(--background-alt);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .movie-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .movie-link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .movie-poster {
+        position: relative;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+    }
+
+    .movie-poster img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .movie-item:hover .movie-poster img {
+        transform: scale(1.05);
+    }
+
+    .movie-overlay {
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .movie-item:hover .movie-overlay {
+        opacity: 1;
+    }
+
+    .movie-play-button {
+        font-size: 3rem;
+        color: white;
+    }
+
+    .movie-details {
+        padding: 1.5rem;
+    }
+
+    .movie-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+    }
+
+    .movie-meta {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+    }
+
+    .movie-description {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    /* Animation d'entrée pour les listes d'épisodes */
+    .season-content {
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Style pour le message "pas d'épisodes" */
+    .no-episodes-message {
+        text-align: center;
+        padding: 3rem 1rem;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        margin: 1rem 0;
+    }
+    
+    .no-episodes-message .icon {
+        font-size: 3rem;
+        color: var(--warning-color, #ffc107);
+        margin-bottom: 1rem;
+    }
+    
+    .no-episodes-message h3 {
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+    }
+    
+    .no-episodes-message p {
+        color: var(--text-secondary);
+        max-width: 500px;
+        margin: 0 auto 0.5rem auto;
+    }
+</style>
+{% endblock %}
+
+{% block scripts %}
+{% if current_user.is_authenticated %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Données de l'anime actuel
+        const animeId = {{ anime.anime_id if anime.anime_id else anime.id }};
+
+        // Le conteneur des onglets de saisons
+        const tabsContainer = document.querySelector('.seasons-tabs-container');
+        
+        // Nous n'avons plus besoin de la navigation horizontale car les saisons sont maintenant
+        // affichées sur plusieurs lignes avec flex-wrap
+
+        // Bouton de favoris
+        const favoriteToggleBtn = document.getElementById('favorite-toggle');
+
+        // Fonction pour ajouter/retirer des favoris
+        function toggleFavorite() {
+            fetch('/toggle-favorite', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    'anime_id': animeId
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Mettre à jour l'affichage du bouton
+                    if (data.action === 'added') {
+                        favoriteToggleBtn.classList.remove('btn-outline');
+                        favoriteToggleBtn.classList.add('btn-warning');
+                        favoriteToggleBtn.innerHTML = '<i class="fas fa-heart"></i> Retirer des favoris';
+                    } else {
+                        favoriteToggleBtn.classList.remove('btn-warning');
+                        favoriteToggleBtn.classList.add('btn-outline');
+                        favoriteToggleBtn.innerHTML = '<i class="fas fa-heart"></i> Ajouter aux favoris';
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Erreur lors de la modification des favoris:', error);
+                alert('Erreur lors de la modification des favoris. Veuillez réessayer.');
+            });
+        }
+
+        // Événement du bouton
+        if (favoriteToggleBtn) {
+            favoriteToggleBtn.addEventListener('click', function() {
+                toggleFavorite();
+            });
+        }
+
+        // Système d'onglets pour les saisons
+        const seasonTabs = document.querySelectorAll('.season-tab');
+        const seasonContents = document.querySelectorAll('.season-content');
+        
+        // Tri des saisons numériquement plutôt qu'alphabétiquement
+        // Cela garantit que les saisons s'affichent dans l'ordre 1, 2, 3... plutôt que 1, 10, 2...
+        const sortedTabs = Array.from(seasonTabs).sort((a, b) => {
+            const aNum = parseInt(a.getAttribute('data-season'), 10);
+            const bNum = parseInt(b.getAttribute('data-season'), 10);
+            
+            // Si les deux sont des nombres, tri numérique
+            if (!isNaN(aNum) && !isNaN(bNum)) {
+                return aNum - bNum;
+            }
+            
+            // Sinon, garder l'ordre initial
+            return 0;
+        });
+        
+        // Réorganiser les onglets dans le DOM selon le tri
+        if (tabsContainer) {
+            sortedTabs.forEach(tab => {
+                tabsContainer.appendChild(tab);
+            });
+        }
+
+        // Afficher la première saison par défaut (après le tri)
+        if (sortedTabs.length > 0) {
+            sortedTabs[0].classList.add('active');
+            const firstSeasonNum = sortedTabs[0].getAttribute('data-season');
+            const firstSeasonContent = document.querySelector(`.season-content[data-season="${firstSeasonNum}"]`);
+            if (firstSeasonContent) {
+                firstSeasonContent.style.display = 'block';
+            }
+        }
+
+        // Ajouter les événements de clic sur les onglets
+        seasonTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const seasonNum = this.getAttribute('data-season');
+
+                // Masquer tous les contenus et désactiver tous les onglets
+                seasonContents.forEach(content => content.style.display = 'none');
+                seasonTabs.forEach(tab => tab.classList.remove('active'));
+
+                // Afficher le contenu sélectionné et activer l'onglet
+                const selectedContent = document.querySelector(`.season-content[data-season="${seasonNum}"]`);
+                if (selectedContent) {
+                    selectedContent.style.display = 'block';
+                }
+                this.classList.add('active');
+            });
+        });
+    });
+</script>
+{% endif %}
+{% endblock %}
