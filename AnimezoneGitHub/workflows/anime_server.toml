@@ -1,0 +1,11 @@
+name = "anime-server"
+description = "Serveur de streaming d'anime"
+run = "python run-server.py"
+language = "python3"
+onBoot = false
+persistentKeepAlive = true
+
+[env]
+FLASK_APP = "app.py"
+FLASK_ENV = "production"
+PYTHONUNBUFFERED = "1"

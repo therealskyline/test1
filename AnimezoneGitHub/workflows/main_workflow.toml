@@ -1,0 +1,11 @@
+name = "main_workflow"
+description = "Serveur principal d'AnimeZone"
+run = "python main.py"
+language = "python3"
+onBoot = false
+persistentKeepAlive = true
+
+[env]
+FLASK_APP = "app.py"
+FLASK_ENV = "production"
+PYTHONUNBUFFERED = "1"

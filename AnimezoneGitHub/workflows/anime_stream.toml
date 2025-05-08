@@ -1,0 +1,12 @@
+# Configuration du workflow pour AnimeZone
+run = "bash start.sh"
+language = "python"
+entrypoint = "main.py"
+onBoot = ""
+hidden = [".config", ".pythonlibs", ".upm", "__pycache__", ".git", ".gitignore", ".replit.back", ".cache", ".local", "backup_files_old"]
+
+[env]
+# Variables d'environnement
+FLASK_APP = "app.py"
+FLASK_ENV = "production"
+PYTHONUNBUFFERED = "1"
