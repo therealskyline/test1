@@ -1,0 +1,274 @@
+ $ python run.py
+Serveurs existants arrêtés (Linux/Unix)
+Démarrage de l'application AnimeZone sur le port 8080
+Répertoire courant: /workspaces/streaming-website-
+Le fichier app.py existe!
+Le dossier templates existe!
+Exécution de: /home/codespace/.python/current/bin/python app.py --host 0.0.0.0 --port 8080
+INFO:__main__:Import de l'API Anime-Sama réussi!
+INFO:__main__:Création des tables terminée
+INFO:__main__:Database tables created successfully!
+INFO:__main__:Préchargement des animes populaires...
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 20 animes trouvés
+INFO:__main__:Préchargement spécial pour One Piece...
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 20 animes trouvés
+WARNING:__main__:One Piece n'a pas été trouvé dans la base de données!
+INFO:__main__:Anime populaire préchargé: Naruto (ID: 8)
+INFO:__main__:Création de l'anime populaire: Dragon Ball (ID: 3)
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:__main__:Requête pour un anime populaire détectée: Dragon Ball
+INFO:__main__:Limite augmentée à 50 pour anime populaire: Dragon Ball
+INFO:__main__:Recherche d'anime via l'API pour: Dragon Ball (limite: 50)
+DEBUG:httpcore.connection:connect_tcp.started host='anime-sama.fr' port=443 local_address=None timeout=5.0 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x71b9323184a0>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x71b9325ff550> server_hostname='anime-sama.fr' timeout=5.0
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x71b9324b6210>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Date', b'Thu, 08 May 2025 13:27:16 GMT'), (b'Content-Type', b'text/html; charset=UTF-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'close'), (b'accept-ch', b'Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA'), (b'cf-mitigated', b'challenge'), (b'critical-ch', b'Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA'), (b'cross-origin-embedder-policy', b'require-corp'), (b'cross-origin-opener-policy', b'same-origin'), (b'cross-origin-resource-policy', b'same-origin'), (b'origin-agent-cluster', b'?1'), (b'permissions-policy', b'accelerometer=(),autoplay=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=()'), (b'referrer-policy', b'same-origin'), (b'server-timing', b'chlray;desc="93c94b2a6f00c28a"'), (b'x-content-type-options', b'nosniff'), (b'x-frame-options', b'SAMEORIGIN'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0'), (b'Expires', b'Thu, 01 Jan 1970 00:00:01 GMT'), (b'Report-To', b'{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=3vI%2BTMmzPmkTKTksR%2F2M88bqSkx6TmJB34TGJhYjnkr%2FGSWf5pDa2MGcpccAdlRsB7QMzsd%2BD4xJ55S0meRht7O%2F%2BC0Yg8oZtBhV%2Bab%2FdoQ3B3cf0H590h%2BMsdWcSlo%3D"}],"group":"cf-nel","max_age":604800}'), (b'NEL', b'{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'), (b'Vary', b'Accept-Encoding'), (b'speculation-rules', b'"/cdn-cgi/speculation"'), (b'Server', b'cloudflare'), (b'CF-RAY', b'93c94b2a6f00c28a-AMS'), (b'Content-Encoding', b'gzip'), (b'server-timing', b'cfL4;desc="?proto=TCP&rtt=1395&min_rtt=1328&rtt_var=546&sent=4&recv=6&lost=0&retrans=0&sent_bytes=2847&recv_bytes=791&delivery_rate=2150602&cwnd=246&unsent_bytes=0&cid=579bb1bcfa8417e7&ts=19&x=0"')])
+INFO:httpx:HTTP Request: GET https://anime-sama.fr/catalogue/?search=Dragon%20Ball "HTTP/1.1 403 Forbidden"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+ERROR:__main__:Erreur lors de la recherche d'anime: Client error '403 Forbidden' for url 'https://anime-sama.fr/catalogue/?search=Dragon%20Ball'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+INFO:__main__:Recherche de Dragon Ball via API: 0 résultats trouvés
+WARNING:__main__:Échec de récupération des données via API pour Dragon Ball: Aucun résultat trouvé dans l'API
+WARNING:__main__:Création d'une structure par défaut
+INFO:__main__:Sauvegarde des données anime vers: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données sauvegardées avec succès: 21 animes
+INFO:__main__:Anime populaire créé: Dragon Ball (ID: 3)
+INFO:__main__:Anime populaire préchargé: Death Note (ID: 5)
+INFO:__main__:Anime populaire préchargé: My Hero Academia (ID: 6)
+INFO:__main__:Anime populaire préchargé: Hunter x Hunter (ID: 7)
+INFO:__main__:Anime populaire préchargé: Demon Slayer (ID: 4)
+INFO:__main__:Anime populaire préchargé: Mashle (ID: 2)
+INFO:__main__:Anime populaire préchargé: Fairy Tail (ID: 9)
+INFO:__main__:Anime populaire préchargé: Sword Art Online (ID: 10)
+INFO:__main__:Anime populaire préchargé: Jujutsu Kaisen (ID: 11)
+INFO:__main__:Préchargement terminé. 10 animes populaires trouvés.
+INFO:__main__:Animes populaires préchargés avec succès
+INFO:__main__:Préchargement des animes populaires...
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 21 animes trouvés
+INFO:__main__:Préchargement spécial pour One Piece...
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 21 animes trouvés
+WARNING:__main__:One Piece n'a pas été trouvé dans la base de données!
+INFO:__main__:Anime populaire préchargé: Naruto (ID: 8)
+INFO:__main__:Anime populaire préchargé: Dragon Ball (ID: 3)
+INFO:__main__:Anime populaire préchargé: Death Note (ID: 5)
+INFO:__main__:Anime populaire préchargé: My Hero Academia (ID: 6)
+INFO:__main__:Anime populaire préchargé: Hunter x Hunter (ID: 7)
+INFO:__main__:Anime populaire préchargé: Demon Slayer (ID: 4)
+INFO:__main__:Anime populaire préchargé: Mashle (ID: 2)
+INFO:__main__:Anime populaire préchargé: Fairy Tail (ID: 9)
+INFO:__main__:Anime populaire préchargé: Sword Art Online (ID: 10)
+INFO:__main__:Anime populaire préchargé: Jujutsu Kaisen (ID: 11)
+INFO:__main__:Préchargement terminé. 10 animes populaires trouvés.
+INFO:__main__:Préchargement des animes populaires effectué avant le démarrage du serveur
+Démarrage du serveur sur 0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+INFO:werkzeug:WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.0.1.111:8080
+INFO:werkzeug:Press CTRL+C to quit
+INFO:werkzeug: * Restarting with stat
+INFO:__main__:Import de l'API Anime-Sama réussi!
+INFO:__main__:Création des tables terminée
+INFO:__main__:Database tables created successfully!
+INFO:__main__:Préchargement des animes populaires...
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 21 animes trouvés
+INFO:__main__:Préchargement spécial pour One Piece...
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 21 animes trouvés
+WARNING:__main__:One Piece n'a pas été trouvé dans la base de données!
+INFO:__main__:Anime populaire préchargé: Naruto (ID: 8)
+INFO:__main__:Anime populaire préchargé: Dragon Ball (ID: 3)
+INFO:__main__:Anime populaire préchargé: Death Note (ID: 5)
+INFO:__main__:Anime populaire préchargé: My Hero Academia (ID: 6)
+INFO:__main__:Anime populaire préchargé: Hunter x Hunter (ID: 7)
+INFO:__main__:Anime populaire préchargé: Demon Slayer (ID: 4)
+INFO:__main__:Anime populaire préchargé: Mashle (ID: 2)
+INFO:__main__:Anime populaire préchargé: Fairy Tail (ID: 9)
+INFO:__main__:Anime populaire préchargé: Sword Art Online (ID: 10)
+INFO:__main__:Anime populaire préchargé: Jujutsu Kaisen (ID: 11)
+INFO:__main__:Préchargement terminé. 10 animes populaires trouvés.
+INFO:__main__:Animes populaires préchargés avec succès
+INFO:__main__:Préchargement des animes populaires...
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 21 animes trouvés
+INFO:__main__:Préchargement spécial pour One Piece...
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 21 animes trouvés
+WARNING:__main__:One Piece n'a pas été trouvé dans la base de données!
+INFO:__main__:Anime populaire préchargé: Naruto (ID: 8)
+INFO:__main__:Anime populaire préchargé: Dragon Ball (ID: 3)
+INFO:__main__:Anime populaire préchargé: Death Note (ID: 5)
+INFO:__main__:Anime populaire préchargé: My Hero Academia (ID: 6)
+INFO:__main__:Anime populaire préchargé: Hunter x Hunter (ID: 7)
+INFO:__main__:Anime populaire préchargé: Demon Slayer (ID: 4)
+INFO:__main__:Anime populaire préchargé: Mashle (ID: 2)
+INFO:__main__:Anime populaire préchargé: Fairy Tail (ID: 9)
+INFO:__main__:Anime populaire préchargé: Sword Art Online (ID: 10)
+INFO:__main__:Anime populaire préchargé: Jujutsu Kaisen (ID: 11)
+INFO:__main__:Préchargement terminé. 10 animes populaires trouvés.
+INFO:__main__:Préchargement des animes populaires effectué avant le démarrage du serveur
+Démarrage du serveur sur 0.0.0.0:8080
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 207-090-309
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:30] "GET / HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:30] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:30] "GET /static/css/style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:31] "GET /favicon.ico HTTP/1.1" 404 -
+DEBUG:__main__:Failed login attempt for user lycia
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:34] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:34] "GET /static/css/style.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:37] "GET /register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:37] "GET /static/css/style.css HTTP/1.1" 304 -
+DEBUG:__main__:New user registered: lycia
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:44] "POST /register HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:44] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:44] "GET /static/css/style.css HTTP/1.1" 304 -
+/workspaces/streaming-website-/app.py:2250: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  user.last_login = datetime.datetime.utcnow()
+DEBUG:__main__:User lycia logged in successfully
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:46] "POST /login HTTP/1.1" 302 -
+/workspaces/streaming-website-/app.py:142: LegacyAPIWarning: The Query.get() method is considered legacy as of the 1.x series of SQLAlchemy and becomes a legacy construct in 2.0. The method is now available as Session.get() (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+  return User.query.get(int(user_id))
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 21 animes trouvés
+INFO:__main__:Chargement du fichier data_discover.json depuis: /workspaces/streaming-website-/data_discover.json
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 21 animes trouvés
+INFO:__main__:Données chargées (format liste): 11 animes trouvés
+INFO:__main__:ID d'anime mis à jour: Hunter x Hunter -> id:7, anime_id:7
+INFO:__main__:ID d'anime mis à jour: Death Note -> id:5, anime_id:5
+INFO:__main__:ID d'anime mis à jour: Demon Slayer -> id:4, anime_id:4
+INFO:__main__:ID d'anime mis à jour: One Punch Man -> id:201, anime_id:201
+INFO:__main__:ID d'anime mis à jour: Mashle -> id:2, anime_id:2
+INFO:__main__:ID d'anime mis à jour: My Hero Academia -> id:6, anime_id:6
+INFO:__main__:ID d'anime mis à jour: Jujutsu Kaisen -> id:11, anime_id:11
+INFO:__main__:ID d'anime mis à jour: Dragon Ball -> id:3, anime_id:3
+INFO:__main__:Animes de découverte chargés: 8 trouvés
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:46] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:47] "GET /static/css/style.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:47] "GET /static/js/main.js HTTP/1.1" 200 -
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 21 animes trouvés
+INFO:__main__:Anime trouvé dans les populaires: hunter x hunter (ID: {'id': 7, 'anime_id': 7})
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:52] "GET /anime/7 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:53] "GET /static/css/style.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:53] "GET /static/js/main.js HTTP/1.1" 304 -
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 21 animes trouvés
+INFO:__main__:Anime trouvé dans les populaires pour le player: hunter x hunter (ID: {'id': 7, 'anime_id': 7})
+INFO:__main__:Récupération des URLs vidéo pour l'anime Hunter x Hunter, saison 1, épisode 1
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:__main__:Tentatives de recherche pour l'anime: ['Hunter x Hunter', 'Hunter x Hunter']
+DEBUG:httpcore.connection:connect_tcp.started host='anime-sama.fr' port=443 local_address=None timeout=5.0 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x766ad82d7860>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x766ad83b24d0> server_hostname='anime-sama.fr' timeout=5.0
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x766ad808d9a0>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Date', b'Thu, 08 May 2025 13:27:57 GMT'), (b'Content-Type', b'text/html; charset=UTF-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'close'), (b'accept-ch', b'Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA'), (b'cf-mitigated', b'challenge'), (b'critical-ch', b'Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA'), (b'cross-origin-embedder-policy', b'require-corp'), (b'cross-origin-opener-policy', b'same-origin'), (b'cross-origin-resource-policy', b'same-origin'), (b'origin-agent-cluster', b'?1'), (b'permissions-policy', b'accelerometer=(),autoplay=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=()'), (b'referrer-policy', b'same-origin'), (b'server-timing', b'chlray;desc="93c94c268cbeea4b"'), (b'x-content-type-options', b'nosniff'), (b'x-frame-options', b'SAMEORIGIN'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0'), (b'Expires', b'Thu, 01 Jan 1970 00:00:01 GMT'), (b'Report-To', b'{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=OfoAmHmx6Z96S2MEP5BTxXUlkiE1aApFAShyG4DCqO1b%2B9tr9To7vQpG6dcTAZB%2FzwztcbYZXJmBPri04xAaJ%2FAbp5hptiBweX8Mu8SNtEGuDhlg9GrQGYsYeB61S2Q%3D"}],"group":"cf-nel","max_age":604800}'), (b'NEL', b'{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'), (b'Vary', b'Accept-Encoding'), (b'speculation-rules', b'"/cdn-cgi/speculation"'), (b'Server', b'cloudflare'), (b'CF-RAY', b'93c94c268cbeea4b-AMS'), (b'Content-Encoding', b'gzip'), (b'server-timing', b'cfL4;desc="?proto=TCP&rtt=1178&min_rtt=1047&rtt_var=486&sent=4&recv=6&lost=0&retrans=0&sent_bytes=2848&recv_bytes=797&delivery_rate=2727793&cwnd=246&unsent_bytes=0&cid=f9665dbfc8df56b4&ts=17&x=0"')])
+INFO:httpx:HTTP Request: GET https://anime-sama.fr/catalogue/?search=Hunter%20x%20Hunter "HTTP/1.1 403 Forbidden"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+ERROR:__main__:Erreur lors de la récupération des URLs vidéo: Client error '403 Forbidden' for url 'https://anime-sama.fr/catalogue/?search=Hunter%20x%20Hunter'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+INFO:__main__:Utilisation de l'URL de secours pour l'épisode: 
+WARNING:__main__:URL de vidéo non trouvée pour anime 7, saison 1, épisode 1
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:57] "GET /player/7/1/1 HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:57] "GET /static/css/style.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:27:57] "GET /static/js/main.js HTTP/1.1" 304 -
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 21 animes trouvés
+INFO:__main__:Recherche via API pour: solo (limite: 20 résultats)
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:__main__:Recherche d'anime via l'API pour: solo (limite: 20)
+DEBUG:httpcore.connection:connect_tcp.started host='anime-sama.fr' port=443 local_address=None timeout=5.0 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x766ad7759160>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x766ad8399650> server_hostname='anime-sama.fr' timeout=5.0
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x766ad77fdc70>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Date', b'Thu, 08 May 2025 13:28:11 GMT'), (b'Content-Type', b'text/html; charset=UTF-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'close'), (b'accept-ch', b'Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA'), (b'cf-mitigated', b'challenge'), (b'critical-ch', b'Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA'), (b'cross-origin-embedder-policy', b'require-corp'), (b'cross-origin-opener-policy', b'same-origin'), (b'cross-origin-resource-policy', b'same-origin'), (b'origin-agent-cluster', b'?1'), (b'permissions-policy', b'accelerometer=(),autoplay=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=()'), (b'referrer-policy', b'same-origin'), (b'server-timing', b'chlray;desc="93c94c81ea919fd8"'), (b'x-content-type-options', b'nosniff'), (b'x-frame-options', b'SAMEORIGIN'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0'), (b'Expires', b'Thu, 01 Jan 1970 00:00:01 GMT'), (b'Report-To', b'{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=%2F5bo0NDY8ygpqlkNV%2FhMSeHlPmtNkLmjCypM7zXBPKl3jlCrVQhvnbNpNMngXe14XMZExi1klbh4Ea6KqZa3YBMEYz9LSJNGTRq2RzwUiR86UmXQnaZhjuK0liJnMWU%3D"}],"group":"cf-nel","max_age":604800}'), (b'NEL', b'{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'), (b'Vary', b'Accept-Encoding'), (b'speculation-rules', b'"/cdn-cgi/speculation"'), (b'Server', b'cloudflare'), (b'CF-RAY', b'93c94c81ea919fd8-AMS'), (b'Content-Encoding', b'gzip'), (b'server-timing', b'cfL4;desc="?proto=TCP&rtt=1240&min_rtt=1109&rtt_var=509&sent=4&recv=6&lost=0&retrans=0&sent_bytes=2846&recv_bytes=782&delivery_rate=2575293&cwnd=251&unsent_bytes=0&cid=5954c512277ace65&ts=14&x=0"')])
+INFO:httpx:HTTP Request: GET https://anime-sama.fr/catalogue/?search=solo "HTTP/1.1 403 Forbidden"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+ERROR:__main__:Erreur lors de la recherche d'anime: Client error '403 Forbidden' for url 'https://anime-sama.fr/catalogue/?search=solo'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+INFO:__main__:Résultats de recherche: 5 animes trouvés
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 21 animes trouvés
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 21 animes trouvés
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:28:11] "GET /search?query=solo HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:28:12] "GET /static/css/style.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:28:12] "GET /static/js/main.js HTTP/1.1" 304 -
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 21 animes trouvés
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:28:15] "GET /anime/192 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:28:15] "GET /static/css/style.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:28:15] "GET /static/js/main.js HTTP/1.1" 304 -
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 21 animes trouvés
+INFO:__main__:Rafraîchissement des sources pour Solo Leveling S1E1 (dernière mise à jour il y a plus de 24h)
+INFO:__main__:Récupération des URLs vidéo pour l'anime Solo Leveling, saison 1, épisode 1
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:__main__:Tentatives de recherche pour l'anime: ['Solo Leveling', 'Solo Leveling', 'solo leveling']
+DEBUG:httpcore.connection:connect_tcp.started host='anime-sama.fr' port=443 local_address=None timeout=5.0 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x766ad808e3c0>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x766ad8a3b5d0> server_hostname='anime-sama.fr' timeout=5.0
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x766ad808e480>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Date', b'Thu, 08 May 2025 13:28:17 GMT'), (b'Content-Type', b'text/html; charset=UTF-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'close'), (b'accept-ch', b'Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA'), (b'cf-mitigated', b'challenge'), (b'critical-ch', b'Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA'), (b'cross-origin-embedder-policy', b'require-corp'), (b'cross-origin-opener-policy', b'same-origin'), (b'cross-origin-resource-policy', b'same-origin'), (b'origin-agent-cluster', b'?1'), (b'permissions-policy', b'accelerometer=(),autoplay=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=()'), (b'referrer-policy', b'same-origin'), (b'server-timing', b'chlray;desc="93c94ca76b89b956"'), (b'x-content-type-options', b'nosniff'), (b'x-frame-options', b'SAMEORIGIN'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0'), (b'Expires', b'Thu, 01 Jan 1970 00:00:01 GMT'), (b'Report-To', b'{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=sffDZdEuTL3GnUN7lxxIS0zwFYrh68O7TOdgeQVYIYs7hXkhzh3wqFc60yIFogHi66%2B5LS3Ttwclm%2FY35IPkcTdeXxZde0qdCMxZ98H8MiLxNCWg%2BzSIDVoPWxWJ9yY%3D"}],"group":"cf-nel","max_age":604800}'), (b'NEL', b'{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'), (b'Vary', b'Accept-Encoding'), (b'speculation-rules', b'"/cdn-cgi/speculation"'), (b'Server', b'cloudflare'), (b'CF-RAY', b'93c94ca76b89b956-AMS'), (b'Content-Encoding', b'gzip'), (b'server-timing', b'cfL4;desc="?proto=TCP&rtt=1184&min_rtt=1052&rtt_var=489&sent=4&recv=6&lost=0&retrans=0&sent_bytes=2847&recv_bytes=793&delivery_rate=2714828&cwnd=251&unsent_bytes=0&cid=98df45cc8c347d84&ts=34&x=0"')])
+INFO:httpx:HTTP Request: GET https://anime-sama.fr/catalogue/?search=Solo%20Leveling "HTTP/1.1 403 Forbidden"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+ERROR:__main__:Erreur lors de la récupération des URLs vidéo: Client error '403 Forbidden' for url 'https://anime-sama.fr/catalogue/?search=Solo%20Leveling'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+WARNING:__main__:Vidmoly détecté, utilisation directe: https://vidmoly.to/embed-qsh9x7gzoslt.html
+DEBUG:__main__:Generated download URL: https://vidmoly.to/embed-qsh9x7gzoslt.html
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:28:17] "GET /player/192/1/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:28:18] "GET /static/css/style.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:28:18] "GET /static/js/main.js HTTP/1.1" 304 -
+/workspaces/streaming-website-/app.py:2442: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  last_watched=datetime.datetime.utcnow()
+/workspaces/streaming-website-/app.py:2461: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  progress.last_watched = datetime.datetime.utcnow()
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:28:18] "POST /save-progress HTTP/1.1" 200 -
+INFO:__main__:Téléchargement direct depuis https://vidmoly.to/embed-qsh9x7gzoslt.html pour anime 192, saison 1, épisode 1
+INFO:__main__:Chargement du fichier anime.json depuis: /workspaces/streaming-website-/static/data/anime.json
+INFO:__main__:Données chargées: 21 animes trouvés
+[download]  73.4% of ~ 534.93MiB at   33.38MiB/s ETA 00:05 (frag 105/143)/workspaces/streaming-website-/app.py:142: LegacyAPIWarning: The Query.get() method is considered legacy as of the 1.x series of SQLAlchemy and becomes a legacy construct in 2.0. The method is now available as Session.get() (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+  return User.query.get(int(user_id))
+[download]  73.5% of ~ 535.27MiB at   33.38MiB/s ETA 00:05 (frag 105/143)INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:28:38] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [08/May/2025 13:28:43] "POST /api/download-direct HTTP/1.1" 200 -
